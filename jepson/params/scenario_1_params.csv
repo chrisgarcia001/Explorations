@@ -1,0 +1,22 @@
+baseline_prob,0.005
+n_user_attrs,5
+n_inter_attrs,5
+user_att_levels,5-5
+inter_att_levels,5-5
+n_users,50
+n_test_inter_designs,50
+top_n_control_inters,2
+propensity_group_1,(3; 3; 3; 0.85; 5)
+#model,LogisticModelBuilder()
+model,RandomForestModelBuilder(500)
+replications,1
+output_csv,output/scenario1.csv
+log_file,output/scenario1_log.txt
+crossover_rate,0.3
+mutation_rate,0.01
+pop_size,300
+max_iterations,40
+max_time,20
+max_noimprove_iterations,10
+max_noimprove_time,10
+elitism,0.3

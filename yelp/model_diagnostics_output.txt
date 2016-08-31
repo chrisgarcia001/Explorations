@@ -1,0 +1,194 @@
+> source("C:\\GitHub\\explorations\\yelp\\analysis5.R")
+---------- SUB-MODEL  1 DIAGNOSTICS: ----------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 986 502 283 162 157
+         2 166 367 250 113  53
+         3  44 187 331 186  80
+         4  18  81 179 332 140
+         5 104 181 275 525 888
+
+Overall Statistics
+                                          
+               Accuracy : 0.4407          
+                 95% CI : (0.4286, 0.4528)
+    No Information Rate : 0.2             
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.3008          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Sensitivity            0.7481  0.27845  0.25114  0.25190   0.6737
+Specificity            0.7906  0.88961  0.90573  0.92071   0.7942
+Pos Pred Value         0.4718  0.38672  0.39976  0.44267   0.4501
+Neg Pred Value         0.9262  0.83141  0.82871  0.83116   0.9069
+Prevalence             0.2000  0.20000  0.20000  0.20000   0.2000
+Detection Rate         0.1496  0.05569  0.05023  0.05038   0.1347
+Detection Prevalence   0.3171  0.14401  0.12564  0.11381   0.2994
+Balanced Accuracy      0.7693  0.58403  0.57843  0.58631   0.7340
+---------- SUB-MODEL  2 DIAGNOSTICS: ----------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 982 503 284 164 158
+         2 170 366 252 112  52
+         3  44 185 328 185  81
+         4  17  83 179 331 142
+         5 105 181 275 526 885
+
+Overall Statistics
+                                          
+               Accuracy : 0.4388          
+                 95% CI : (0.4268, 0.4509)
+    No Information Rate : 0.2             
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.2986          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Sensitivity            0.7451  0.27769  0.24886  0.25114   0.6715
+Specificity            0.7896  0.88885  0.90611  0.92014   0.7938
+Pos Pred Value         0.4696  0.38445  0.39854  0.44016   0.4488
+Neg Pred Value         0.9253  0.83115  0.82833  0.83094   0.9062
+Prevalence             0.2000  0.20000  0.20000  0.20000   0.2000
+Detection Rate         0.1490  0.05554  0.04977  0.05023   0.1343
+Detection Prevalence   0.3173  0.14446  0.12489  0.11411   0.2992
+Balanced Accuracy      0.7674  0.58327  0.57748  0.58564   0.7326
+---------- SUB-MODEL  3 DIAGNOSTICS: ----------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 984 503 283 164 158
+         2 168 366 252 113  52
+         3  44 185 328 184  82
+         4  18  83 179 331 140
+         5 104 181 276 526 886
+
+Overall Statistics
+                                          
+               Accuracy : 0.4393          
+                 95% CI : (0.4273, 0.4514)
+    No Information Rate : 0.2             
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.2991          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Sensitivity            0.7466  0.27769  0.24886  0.25114   0.6722
+Specificity            0.7898  0.88904  0.90611  0.92033   0.7938
+Pos Pred Value         0.4704  0.38486  0.39854  0.44075   0.4491
+Neg Pred Value         0.9257  0.83118  0.82833  0.83096   0.9064
+Prevalence             0.2000  0.20000  0.20000  0.20000   0.2000
+Detection Rate         0.1493  0.05554  0.04977  0.05023   0.1344
+Detection Prevalence   0.3175  0.14431  0.12489  0.11396   0.2994
+Balanced Accuracy      0.7682  0.58336  0.57748  0.58574   0.7330
+---------- SUB-MODEL  1 DIAGNOSTICS: ----------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 983 502 282 162 156
+         2 168 371 253 114  53
+         3  44 183 327 184  81
+         4  17  81 179 333 139
+         5 106 181 277 525 889
+
+Overall Statistics
+                                          
+               Accuracy : 0.4405          
+                 95% CI : (0.4285, 0.4526)
+    No Information Rate : 0.2             
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.3006          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Sensitivity            0.7458   0.2815  0.24810  0.25266   0.6745
+Specificity            0.7910   0.8885  0.90668  0.92109   0.7934
+Pos Pred Value         0.4715   0.3869  0.39927  0.44459   0.4494
+Neg Pred Value         0.9256   0.8318  0.82828  0.83136   0.9070
+Prevalence             0.2000   0.2000  0.20000  0.20000   0.2000
+Detection Rate         0.1492   0.0563  0.04962  0.05053   0.1349
+Detection Prevalence   0.3164   0.1455  0.12428  0.11366   0.3002
+Balanced Accuracy      0.7684   0.5850  0.57739  0.58687   0.7340
+---------- SUB-MODEL  2 DIAGNOSTICS: ----------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 983 503 281 163 157
+         2 170 365 255 111  52
+         3  42 187 329 187  81
+         4  18  82 177 331 141
+         5 105 181 276 526 887
+
+Overall Statistics
+                                          
+               Accuracy : 0.4393          
+                 95% CI : (0.4273, 0.4514)
+    No Information Rate : 0.2             
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.2991          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Sensitivity            0.7458  0.27693  0.24962  0.25114   0.6730
+Specificity            0.7906  0.88847  0.90573  0.92071   0.7936
+Pos Pred Value         0.4710  0.38300  0.39831  0.44192   0.4491
+Neg Pred Value         0.9256  0.83094  0.82842  0.83102   0.9066
+Prevalence             0.2000  0.20000  0.20000  0.20000   0.2000
+Detection Rate         0.1492  0.05539  0.04992  0.05023   0.1346
+Detection Prevalence   0.3167  0.14461  0.12534  0.11366   0.2997
+Balanced Accuracy      0.7682  0.58270  0.57767  0.58593   0.7333
+---------- SUB-MODEL  3 DIAGNOSTICS: ----------
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   1   2   3   4   5
+         1 984 502 282 162 156
+         2 168 368 253 112  52
+         3  43 186 327 185  80
+         4  17  81 179 332 143
+         5 106 181 277 527 887
+
+Overall Statistics
+                                          
+               Accuracy : 0.4398          
+                 95% CI : (0.4277, 0.4518)
+    No Information Rate : 0.2             
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.2997          
+ Mcnemar's Test P-Value : < 2.2e-16       
+
+Statistics by Class:
+
+                     Class: 1 Class: 2 Class: 3 Class: 4 Class: 5
+Sensitivity            0.7466  0.27921  0.24810  0.25190   0.6730
+Specificity            0.7910  0.88904  0.90630  0.92033   0.7931
+Pos Pred Value         0.4717  0.38615  0.39829  0.44149   0.4484
+Neg Pred Value         0.9258  0.83147  0.82822  0.83111   0.9065
+Prevalence             0.2000  0.20000  0.20000  0.20000   0.2000
+Detection Rate         0.1493  0.05584  0.04962  0.05038   0.1346
+Detection Prevalence   0.3165  0.14461  0.12458  0.11411   0.3002
+Balanced Accuracy      0.7688  0.58412  0.57720  0.58612   0.7330
+> 

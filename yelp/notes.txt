@@ -1,0 +1,4 @@
+Quick Text Mining: http://www.unt.edu/rss/class/Jon/Benchmarks/TextMining_L_JDS_Jan2014.pdf
+Word Cloud: https://deltadna.com/blog/text-mining-in-r-for-term-frequency/
+TM-Based Classif: http://web.letras.up.pt/bhsmaia/EDV/apresentacoes/Bradzil_Classif_withTM.pdf
+R Text Tutorials: http://thinktostart.com/category/datascience/r-tutorials/

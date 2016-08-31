@@ -1,0 +1,4 @@
+*.pyc
+*.json
+/spark/news20/*.txt
+.Rproj.user

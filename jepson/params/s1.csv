@@ -1,0 +1,20 @@
+num_trials, 5
+baseline_prob, 0.02
+
+# A user attribute specification is used to generate 
+# random attributes for users. It has 3 attrobutes of form:
+#   <num. attributes>; <min. levels>; <max levels>
+user_attribute_spec', 5; 2; 4
+
+# A message attribute specification is used to generate 
+# random attributes for users. It has 3 attrobutes of form:
+#   <num. attributes>; <min. levels>; <max levels>
+msg_attribute_spec, 5; 2; 4
+
+num_propensity_groups, 5
+minmax_user_propensity_attrs_involved, 3; 5
+minmax_msg_propensity_attrs_involved, 2; 4
+minmax_propensity_group_response_prob, 0.2; 0.85
+num_test_messages, 100
+num_users, 10000
+output_file, ../output/s1.txt

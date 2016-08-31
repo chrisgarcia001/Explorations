@@ -1,0 +1,3 @@
+Beginning Simulation Interation 1
+Top message: (['L_2', 'L_3', 'L_3', 'L_1', 'L_2'], 0.195)
+Optimal targeted messages results: 0.16
