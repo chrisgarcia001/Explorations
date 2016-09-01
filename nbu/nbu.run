@@ -1,0 +1,6 @@
+option solver bpmpd; 
+solve; 
+#display total_cost;
+display total_revenue;
+display total_margin;
+display alloc;

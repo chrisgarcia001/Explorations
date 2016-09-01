@@ -1,0 +1,13 @@
+reset;
+model basic-nbu.mod;
+data nbu.dat;
+#option solver MINOS;
+#option minos_options 'Penalty_parameter=20.2';
+#option solver kestrel;
+#option kestrel_options 'solver=KNITRO';
+solve;
+display alloc;
+display total_cost;
+display total_revenue;
+display total_margin;
+reset;

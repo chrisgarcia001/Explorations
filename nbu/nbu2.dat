@@ -1,0 +1,6 @@
+set GRADES :=  A B C D ;
+set CHANNELS :=  sc_internal_use negotiated_selloff auction_selloff cpo_dtc ;
+Redemption :=  A 24 B 666 C 64 D 48 ;
+Capacity :=  sc_internal_use 600 negotiated_selloff 50 auction_selloff 1000 cpo_dtc 150 ;
+param Price := [A,sc_internal_use] 395 [A,negotiated_selloff] 395 [A,auction_selloff] 395 [A,cpo_dtc] 395 [B,sc_internal_use] 385 [B,negotiated_selloff] 385 [B,auction_selloff] 285 [B,cpo_dtc] 270 [C,sc_internal_use] 390 [C,negotiated_selloff] 387.5 [C,auction_selloff] 300 [C,cpo_dtc] 280 [D,sc_internal_use] 415 [D,negotiated_selloff] 415 [D,auction_selloff] 415 [D,cpo_dtc] 415 ;
+param Cost := [A,sc_internal_use] 285 [A,negotiated_selloff] 310 [A,auction_selloff] 320 [A,cpo_dtc] 390 [B,sc_internal_use] 315 [B,negotiated_selloff] 315 [B,auction_selloff] 315 [B,cpo_dtc] 375 [C,sc_internal_use] 315 [C,negotiated_selloff] 315 [C,auction_selloff] 315 [C,cpo_dtc] 375 [D,sc_internal_use] 335 [D,negotiated_selloff] 360 [D,auction_selloff] 370 [D,cpo_dtc] 410 ;
