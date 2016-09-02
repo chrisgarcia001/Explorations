@@ -1,58 +1,48 @@
 library(lpSolveAPI)
-library(stringr)
 
-# nbu.solve(c(88,42), c(61, 11), data.frame(a=c(1,2),b=c(3,4)), data.frame(a=c(5,6),b=c(7,8))
-
-add.var <- function(var.names, new.vars) {
-	for(i in 1:length(new.vars)) {
-		if(!is.element(new.vars[i], var.names)) {
-			var.names[length(var.names) + i] <- new.vars[i]
-		}
-	}
-	var.names
-}
-
-varname <- function(vname, i=NULL, j=NULL) {
-	if(!is.null(i)) {
-		vname <- paste(vname, i, sep='_')
-		if(!is.null(j)) {
-			vname <- paste(vname, j, sep='_')
-		}
-	}
-	vname
-}
-
-# Reduce using the 2-arity function f (folds from left).
-reduce <- function(f, items, identity=0) {
-	if(length(items) == 0) {return(identity)}
-	total <- items[1]
-	for(i in 2:length(items)) {
-		total <- f(total, items[i])
-	}
-	total
-}
-
-# Join a vector of items together into a single string. Similar to paste, 
-# but takes a vector of items rather than the items.
-vec_join <- function(str_vec, sep=' ') {
-	reduce(function(x,y){paste(x,y,sep=sep)}, str_vec)
-}
-
-nbu.solve <- function(redemptions, capacities, prices, costs) {
-	var.names <- c('total_revenue', 'total_revenue')
-	grades <- length(redemptions)
-	channels <- length(capacities)
-	modstr <- 'max: total_revenue - total_revenue;\n'
-	for(i in 1:grades) {
-		newvars <- sapply(1:channels, function(j) {varname('x',i,j)})
-		add.var(var.names, newvars)
-		modstr <- paste(modstr, vec_join(newvars, sep=' + '), '=', redemptions[i], ";\n")
-	}
-	for(i in 1:grades) {
-		newvars <- sapply(1:channels, function(j) {varname('x',i,j)})
-		add.var(var.names, newvars)
-		modstr <- paste(modstr, vec_join(newvars, sep=' + '), '=', redemptions[i], ";\n")
-	}
-	modstr
+nbu.solve <- function(redemption, capacity, price, cost, redemption.constraint.type='=') {
+	# Create an LP model with 0 constraints and 18 decision variables, where:
+	#   Variables 1-4 are x11-x14, 5-8 are x21-x24, etc. 
+	#   Variable 17 = total revenue and variable 18 = total cost
+	mod <- make.lp(0,18)
 	
+	# Set to maximize:
+	lp.control(mod, sense="max")
+	
+	# Set objective function:
+	set.objfn(mod, c(1, -1), indices=c(17, 18))
+	
+	# Redemption constraints:
+	add.constraint(mod, rep(1, 4), type=redemption.constraint.type, indices=1:4, rhs=redemption[1])
+	add.constraint(mod, rep(1, 4), type=redemption.constraint.type, indices=5:8, rhs=redemption[2])
+	add.constraint(mod, rep(1, 4), type=redemption.constraint.type, indices=9:12, rhs=redemption[3])
+	add.constraint(mod, rep(1, 4), type=redemption.constraint.type, indices=13:16, rhs=redemption[4])
+	
+	# Capacity constraints:
+	add.constraint(mod, rep(1, 4), type='<=', indices=seq(1, 16, by=4), rhs=capacity[1])
+	add.constraint(mod, rep(1, 4), type='<=', indices=seq(2, 16, by=4), rhs=capacity[2])
+	add.constraint(mod, rep(1, 4), type='<=', indices=seq(3, 16, by=4), rhs=capacity[3])
+	add.constraint(mod, rep(1, 4), type='<=', indices=seq(4, 16, by=4), rhs=capacity[4])
+	
+	# Total revenue constraint:
+	rev.coefs <- as.vector(t(as.matrix(price)))
+	rev.coefs[17] <- -1
+	add.constraint(mod, rev.coefs, type='=', indices=1:17, rhs=0)
+	
+	# Total cost constraint:
+	cost.coefs <- as.vector(t(as.matrix(cost)))
+	cost.coefs[17] <- -1
+	cost.inds <- 1:16
+	cost.inds[17] <- 18
+	add.constraint(mod, cost.coefs, type='=', indices=cost.inds, rhs=0)
+	
+	# Solve the model:
+	solve(mod)
+	
+	# Build the outputs and return them:
+	total_margin <- get.objective(mod)
+	total_revenue <- get.variables(mod)[17]
+	total_cost <- get.variables(mod)[18]
+	alloc <- as.data.frame(t(matrix(get.variables(mod)[1:16], nrow=4)))
+	list(total_revenue=total_revenue, total_margin=total_margin, total_cost=total_cost, alloc=alloc)
 }
