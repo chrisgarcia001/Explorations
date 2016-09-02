@@ -1,3 +1,7 @@
+# This is an NBU solver using lpSolveAPI. The following great documentation was used to 
+# get a quick grasp of lpSolveAPI:
+# http://icyrock.com/blog/2013/12/linear-programming-in-r-using-lpsolve/
+
 library(lpSolveAPI)
 
 nbu.solve <- function(redemption, capacity, price, cost, redemption.constraint.type='=') {
