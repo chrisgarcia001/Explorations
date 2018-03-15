@@ -1,3 +1,4 @@
+
 class Functor:
 	def __init__(self, functor):
 		self.functor = functor
@@ -8,7 +9,7 @@ class Expression:
 		self.is_functor = is_functor
 		self.variable_identifier = variable_identifier
 		if type(exp) == type('_'):
-			self.exp = parse_to_list(exp)
+			self.exp = parse(exp)
 		else:
 			self.exp = map(lambda x: Expression(x, variable_identifier = variable_identifier ) if type(x) == type([]) else x, exp)
 	
@@ -50,12 +51,20 @@ class Expression:
 	# A top-level matching function to be called from outside.
 	def match(self, other_exp):
 		return self.rec_match(other_exp, {})
-		
-def parse_to_exp(string_exp):
-	return None #TODO - parse a string into proper Expression object.
-
-def parse_to_list(string_exp):
-	return [] #TODO - parse a string into proper list expression.
-		
-		
 	
+	# Clean and format a string expression for parsing into expressions.
+	def canonical_string_exp(string_exp):
+		if not(string_exp.startswith('(')):
+			string_exp = '(' + string_exp + ')'
+		string_exp = string_exp.replace('(', '( ')
+		string_exp = string_exp.replace(')', ' )')
+		return string_exp
+	
+	# Parse a string into a proper expression. Proper string expressions have the following:
+	# 1) Only opening and closing parantheses '(' and ')' are used for containing expressions/subexpressions
+	# 2) Each unique token (including 
+	def parse(self, string_exp):
+		return []
+		
+		
+		
