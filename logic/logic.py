@@ -13,10 +13,13 @@ class Expression:
 			#self.exp = exp 
 			self.exp = map(lambda x: Expression(x, variable_identifier = variable_identifier ) if type(x) == type([]) else x, exp)
 	
-	# Match this expression to another. Return the resulting variable bindings as a dict of form {variable: bound_val}.
+	# Match this expression to another. Return the resulting variable bindings as a dict of form {variable: bound_val},
+	# or False if no match.
 	def match(self, other_exp, bindings = {}):
 		if type(other_exp) == type([]) and len(other_exp) != len(self.exp):
 			return False
+		if other_exp.__class__.__name__ == 'Expression':
+			other_exp = other_exp.exp
 		for (a, b) in zip(self.exp, other_exp):
 			if a.__class__.__name__ == 'Expression':
 				if b.__class__.__name__ == 'Expression':
