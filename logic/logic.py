@@ -61,7 +61,7 @@ class Expression:
 		return string_exp
 	
 	# Parse a string into a proper expression. Proper string expressions have the following:
-	# 1) Only opening and closing parantheses '(' and ')' are used for containing expressions/subexpressions
+	# 1) Only opening and closing parentheses '(' and ')' are used for containing expressions/subexpressions
 	# 2) Each unique token (including 
 	def parse(self, string_exp):
 		return []
