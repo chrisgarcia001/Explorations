@@ -10,12 +10,11 @@ class Expression:
 		if type(exp) == type('_'):
 			self.exp = parse_to_list(exp)
 		else:
-			#self.exp = exp 
 			self.exp = map(lambda x: Expression(x, variable_identifier = variable_identifier ) if type(x) == type([]) else x, exp)
 	
-	# Match this expression to another. Return the resulting variable bindings as a dict of form {variable: bound_val},
-	# or False if no match.
-	def match(self, other_exp, bindings = {}):
+	# Recursively match this expression to another. Return the resulting variable bindings as a dict of 
+	# form {variable: bound_val}, or False if no match.
+	def rec_match(self, other_exp, bindings):
 		if type(other_exp) == type([]) and len(other_exp) != len(self.exp):
 			return False
 		if other_exp.__class__.__name__ == 'Expression':
@@ -26,7 +25,7 @@ class Expression:
 					if a.is_functor != b.is_functor:
 						return False
 					b = b.exp
-				bindings = a.match(b, bindings)
+				bindings = a.rec_match(b, bindings)
 				if bindings == False:
 					return False					
 			elif type(a) == type([]) and type(b) == type([]):
@@ -34,7 +33,7 @@ class Expression:
 					if a.is_functor != b.is_functor:
 						return False
 					b = b.exp
-				bindings = Expression(a, self.variable_identifier).match(b, bindings)
+				bindings = Expression(a, self.variable_identifier).rec_match(b, bindings)
 				if bindings == False:
 					return False
 			elif self.variable_identifier(a): 
@@ -42,9 +41,15 @@ class Expression:
 					return False
 				else:
 					bindings[a] = b
+			elif a == '_':
+				pass
 			elif a != b:
 				return False
 		return bindings
+	
+	# A top-level matching function to be called from outside.
+	def match(self, other_exp):
+		return self.rec_match(other_exp, {})
 		
 def parse_to_exp(string_exp):
 	return None #TODO - parse a string into proper Expression object.
