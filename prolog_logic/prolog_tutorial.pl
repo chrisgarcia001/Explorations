@@ -62,7 +62,24 @@ poly_sum([(A,B)|C], D, E) :-
 	poly_sum(C, [(A,B)|D], E).
 	
 	
+% 3.14
+/* Example: ?- top_solution([v,e,a,d,a,r,a], X). */
+% consult(words).
+word_letters(W, L) :- atom_chars(W, L).
+cover([], _).
+cover([A|B], C) :-
+    select(A, C, D), cover(B, D).
 	
+solution(A, W, N) :-
+    word(X), word_letters(X, W),
+    length(W, N), cover(W, A).
+
+top_solution(L, W, N) :- solution(L, W, N), !.
+top_solution(L, W, N) :-
+    M is N - 1, M >= 0, top_solution(L, W, M).
+top_solution(L, W) :-
+    length(L, N), top_solution(L, W, N).
+     
 	
 
 
