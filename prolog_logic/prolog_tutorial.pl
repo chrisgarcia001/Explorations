@@ -74,12 +74,12 @@ solution(A, W, N) :-
     word(X), word_letters(X, W),
     length(W, N), cover(W, A).
 
-top_solution(L, W, N) :- solution(L, W, N), !.
 top_solution(L, W, N) :-
-    M is N - 1, M >= 0, top_solution(L, W, M).
-top_solution(L, W) :-
-    length(L, N), top_solution(L, W, N).
+    length(L, M), top_sol(L, W, M), length(W, N).
+top_sol(L, W, N) :- solution(L, W, N).
+top_sol(L, W, N) :-
+    M is N - 1, M >= 0, top_sol(L, W, M), !.
      
-	
+
 
 
